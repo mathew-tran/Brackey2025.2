@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
     }
     public void ProcessMove(Vector2 input)
     {
-        Debug.Log(input);
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
         moveDirection.z = input.y;
