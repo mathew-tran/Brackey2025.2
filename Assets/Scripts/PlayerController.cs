@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class PlayerController : MonoBehaviour
     {
         mPlayerInput = new PlayerInput();
         mDogControllerActions = mPlayerInput.DogController;
+        mDogControllerActions.Restart.performed += ctx => Restart();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnEnable()
