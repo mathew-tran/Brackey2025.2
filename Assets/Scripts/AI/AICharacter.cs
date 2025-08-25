@@ -5,7 +5,7 @@ using static UnityEditor.PlayerSettings;
 public class AICharacter : MonoBehaviour
 {
     public float mSpeed = 10.0f;
-
+    public SpeechBubble mSpeechBubble;
     public void MoveTo(Vector3 position)
     {
         gameObject.transform.position += (GetTargetPosition(position) - gameObject.transform.position).normalized * mSpeed * Time.deltaTime;

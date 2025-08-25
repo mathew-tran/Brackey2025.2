@@ -24,4 +24,9 @@ public abstract class State : MonoBehaviour
     {
         return mAICharacter;
     }
+
+    public SpeechBubble GetSpeechBubble()
+    {
+        return mAICharacter.mSpeechBubble;
+    }
 }
