@@ -61,4 +61,12 @@ public class PlayerController : MonoBehaviour
         mController.Move(mVelocity * Time.deltaTime);
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Car")
+        {
+            Restart();
+        }
+    }
 }
