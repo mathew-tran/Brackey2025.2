@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +20,13 @@ public class PlayerController : MonoBehaviour
     private PlayerInput mPlayerInput;
     private PlayerInput.DogControllerActions mDogControllerActions;
 
+
+    public UnityEvent OnPlayerDeath;
+
     public CharacterController mController;
+    private Vector3 mDeathPosition = Vector3.zero;
+
+    public bool bIsDead = false;
     void Awake()
     {
         mPlayerInput = new PlayerInput();
@@ -44,6 +51,11 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (bIsDead)
+        {
+            transform.position = mDeathPosition;
+            return;
+        }
         ProcessMove(mDogControllerActions.Move.ReadValue<Vector2>());
     }
     public void ProcessMove(Vector2 input)
@@ -65,7 +77,15 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Car")
         {
-            Restart();
+            if (bIsDead == false)
+            {
+                OnPlayerDeath.Invoke();
+                bIsDead = true;
+                ProcessMove(Vector2.zero);
+                mDeathPosition = transform.position;
+
+            }
+            
         }
     }
 }

@@ -22,5 +22,6 @@ public class StateMoveTo : State
     public override void StartBehaviour()
     {
         Debug.Log("Start Move Behaviour: " + name);
+        GetAgent().bLookAtDog = false;
     }
 }

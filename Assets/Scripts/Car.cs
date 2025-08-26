@@ -10,8 +10,24 @@ public class Car : MonoBehaviour
     private float Progress = 0.0f;
     public float mTimeToComplete = 10.0f;
 
+    public bool mIsActive = true;
+
+    private void Start()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().OnGameOver.AddListener(OnPlayerKilled);
+    }
+
+    private void OnPlayerKilled()
+    {
+        mIsActive = false;
+    }
     void Update()
     {
+        if (mIsActive == false)
+        {
+            return;
+        }
+
         Progress += Time.deltaTime * 1/mTimeToComplete;
         if (Progress >= 1.0f)
         {

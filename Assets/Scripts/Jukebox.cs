@@ -19,6 +19,10 @@ public class Jukebox : MonoBehaviour
     public AudioSource mTenseSource;
     public AudioSource mDeathSource;
 
+    public void PlayerKilled()
+    {
+        PlaySong(SONG_TYPE.DEATH);
+    }
     public async Task PlaySong(SONG_TYPE song)
     {
         await StartFade(mCheerySource, .1f, 0);
