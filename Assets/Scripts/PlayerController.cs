@@ -26,12 +26,68 @@ public class PlayerController : MonoBehaviour
     public CharacterController mController;
     private Vector3 mDeathPosition = Vector3.zero;
 
-    public bool bIsDead = false;
+    private Vector2 mTackleDirection = Vector2.zero;
+
+    public float TackleProgress = 0;
+    public float TackleLength = .1f;
+    public float TackleSpeedModifier = 1.5f;
+
+    public UnityEvent OnTackleStart;
+    public UnityEvent onTackleEnd;
+
+    private Material mNormalMaterial;
+    public Material mTackleMaterial;
+    public enum CHARACTER_STATE
+    {
+        MOVING,
+        TACKLE,
+        DEAD,
+    }
+
+    public CHARACTER_STATE mCurrentState;
     void Awake()
     {
         mPlayerInput = new PlayerInput();
         mDogControllerActions = mPlayerInput.DogController;
         mDogControllerActions.Restart.performed += ctx => Restart();
+        mDogControllerActions.Tackle.performed += ctx => Tackle();
+        mNormalMaterial = GetComponent<MeshRenderer>().material;
+    }
+
+    public void Tackle()
+    {
+        if (IsDead())
+        {
+            return;
+        }
+        if (IsTackling())
+        {
+            return;
+        }
+        mTackleDirection = mDogControllerActions.Move.ReadValue<Vector2>();
+        if (mTackleDirection == Vector2.zero)
+        {
+            return;
+        }
+        GetComponent<MeshRenderer>().material = mTackleMaterial;
+        mCurrentState = CHARACTER_STATE.TACKLE;
+        OnTackleStart.Invoke();
+        TackleProgress = 0.0f;
+       
+    }
+
+    public bool IsDead()
+    {
+        return mCurrentState == CHARACTER_STATE.DEAD;
+    }
+    public bool IsTackling()
+    {
+        return mCurrentState == CHARACTER_STATE.TACKLE;
+    }
+
+    public bool IsMoving()
+    {
+        return mCurrentState == CHARACTER_STATE.MOVING;
     }
 
     public void Restart()
@@ -51,19 +107,34 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (bIsDead)
+        if (IsDead())
         {
             transform.position = mDeathPosition;
             return;
         }
-        ProcessMove(mDogControllerActions.Move.ReadValue<Vector2>());
+        if (IsMoving())
+        {
+            ProcessMove(mDogControllerActions.Move.ReadValue<Vector2>(), mSpeed);
+        }
+        if (IsTackling())
+        {
+            ProcessMove(mTackleDirection, mSpeed * TackleSpeedModifier);
+            TackleProgress += Time.deltaTime;
+            if (TackleProgress > TackleLength)
+            {
+                mCurrentState = CHARACTER_STATE.MOVING;
+                onTackleEnd.Invoke();
+                GetComponent<MeshRenderer>().material = mNormalMaterial;
+            }
+        }
+       
     }
-    public void ProcessMove(Vector2 input)
+    public void ProcessMove(Vector2 input, float speed)
     {
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
         moveDirection.z = input.y;
-        mController.Move(transform.TransformDirection(moveDirection) * mSpeed * Time.deltaTime);
+        mController.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
         mVelocity.y += mGravity * Time.deltaTime;
         if (bIsGrounded && mVelocity.y < 0)
         {
@@ -73,16 +144,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+  
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Car")
         {
-            if (bIsDead == false)
+            if (IsDead() == false)
             {
                 OnPlayerDeath.Invoke();
-                bIsDead = true;
-                ProcessMove(Vector2.zero);
+                mCurrentState = CHARACTER_STATE.DEAD;
+                ProcessMove(Vector2.zero, 0);
                 mDeathPosition = transform.position;
+                GetComponent<MeshRenderer>().material = mNormalMaterial;
 
             }
             

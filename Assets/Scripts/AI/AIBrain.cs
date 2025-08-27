@@ -31,6 +31,10 @@ public class AIBrain : MonoBehaviour
         mCurrentState.StartBehaviour();
     }
 
+    public void DestroyBrain()
+    {
+        Destroy(gameObject);
+    }
     public void DeactivateBrain()
     {
         bIsActive = false;

@@ -118,6 +118,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Tackle"",
+                    ""type"": ""Button"",
+                    ""id"": ""1925844c-72c3-40fd-abd0-b4a6b582c9eb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -252,6 +261,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7f98b11-983c-41f3-9752-80fbc90d70d0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tackle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d1a0699-f005-4d13-a1ac-26cf9f981d08"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tackle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -263,6 +294,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_DogController_Move2 = m_DogController.FindAction("Move2", throwIfNotFound: true);
         m_DogController_Move = m_DogController.FindAction("Move", throwIfNotFound: true);
         m_DogController_Restart = m_DogController.FindAction("Restart", throwIfNotFound: true);
+        m_DogController_Tackle = m_DogController.FindAction("Tackle", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -346,6 +378,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_DogController_Move2;
     private readonly InputAction m_DogController_Move;
     private readonly InputAction m_DogController_Restart;
+    private readonly InputAction m_DogController_Tackle;
     /// <summary>
     /// Provides access to input actions defined in input action map "DogController".
     /// </summary>
@@ -369,6 +402,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "DogController/Restart".
         /// </summary>
         public InputAction @Restart => m_Wrapper.m_DogController_Restart;
+        /// <summary>
+        /// Provides access to the underlying input action "DogController/Tackle".
+        /// </summary>
+        public InputAction @Tackle => m_Wrapper.m_DogController_Tackle;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -404,6 +441,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Restart.started += instance.OnRestart;
             @Restart.performed += instance.OnRestart;
             @Restart.canceled += instance.OnRestart;
+            @Tackle.started += instance.OnTackle;
+            @Tackle.performed += instance.OnTackle;
+            @Tackle.canceled += instance.OnTackle;
         }
 
         /// <summary>
@@ -424,6 +464,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Restart.started -= instance.OnRestart;
             @Restart.performed -= instance.OnRestart;
             @Restart.canceled -= instance.OnRestart;
+            @Tackle.started -= instance.OnTackle;
+            @Tackle.performed -= instance.OnTackle;
+            @Tackle.canceled -= instance.OnTackle;
         }
 
         /// <summary>
@@ -485,5 +528,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRestart(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Tackle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTackle(InputAction.CallbackContext context);
     }
 }

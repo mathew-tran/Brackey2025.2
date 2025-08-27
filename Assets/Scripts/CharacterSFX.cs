@@ -29,7 +29,7 @@ public class CharacterSFX : MonoBehaviour
     {
         PlaySFX(SFX_TYPE.DYING);
     }
-    public void PlaySFX(SFX_TYPE type)
+    public void PlaySFX(SFX_TYPE type, bool mPitchShift = false)
     {
         AudioClip clipToPlay = mDying;
         switch(type)
@@ -50,6 +50,13 @@ public class CharacterSFX : MonoBehaviour
                 clipToPlay = mGettingExcited;
                 break;
 
+        }
+        if (mPitchShift)
+        {
+            mSource.pitch = UnityEngine.Random.Range(.9f, 1.2f);
+        }
+        else {
+            mSource.pitch = 1;
         }
         mSource.clip = clipToPlay;
         mSource.Play();

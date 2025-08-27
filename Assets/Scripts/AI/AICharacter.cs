@@ -1,3 +1,4 @@
+using System.Runtime.ConstrainedExecution;
 using Unity.Burst;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,8 +17,23 @@ public class AICharacter : MonoBehaviour
     public GameObject mBody;
 
     public GameObject CharacterSounds;
+
+    public enum STATE
+    {
+        MOVING,
+        TACKLED
+    }
+
+    public STATE mCurrentState;
+    public float mTackleProgress = 0.0f;
+    public float mTackleLength = .2f;
+    public Vector3 mTackleDirection = Vector3.zero;
     public void MoveTo(Vector3 position)
     {
+        if (mCurrentState == STATE.TACKLED)
+        {
+            return;
+        }
         gameObject.transform.position += (GetTargetPosition(position) - gameObject.transform.position).normalized * mSpeed * Time.deltaTime;
         transform.LookAt(GetTargetPosition(position));
     }
@@ -26,12 +42,29 @@ public class AICharacter : MonoBehaviour
     {
         bLookAtDog = bLookAt;
     }
-    public void LateUpdate()
+
+    private void LateUpdate()
     {
+      
         if (bLookAtDog)
         {
             Vector3 positionToLookAt = GetTargetPosition(GameObject.Find("Player").gameObject.transform.position);
             transform.LookAt(positionToLookAt);
+        }
+
+    }
+
+    private void Update()
+    {
+        if (mCurrentState == STATE.TACKLED)
+        {
+            transform.position += mTackleDirection * 20 * Time.deltaTime;
+            mTackleProgress += Time.deltaTime;
+            if (mTackleProgress > mTackleLength)
+            {
+                mCurrentState = STATE.MOVING;
+            }
+
         }
     }
 
@@ -63,5 +96,15 @@ public class AICharacter : MonoBehaviour
             }
 
         }
+       
+    }
+
+    public void OnTackled(Vector3 dir)
+    {
+        mTackleDirection = dir;
+        mTackleDirection.y = 0;
+        mCurrentState = STATE.TACKLED;
+        mTackleProgress = 0.0f;
+        CharacterSounds.GetComponent<CharacterSFX>().PlaySFX(CharacterSFX.SFX_TYPE.GETTING_ANGRY, true);
     }
 }
