@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AIBrain : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AIBrain : MonoBehaviour
     private State mCurrentState;
 
     public AICharacter mAICharacter;
+    public string mSceneString;
 
     public bool bIsActive = true;
     private void Awake()
@@ -68,6 +70,12 @@ public class AIBrain : MonoBehaviour
         else
         {
             Debug.Log("No Behaviours Left for: " + mAICharacter.gameObject.name);
+            if (mSceneString != "")
+            {
+                SceneManager.LoadScene(mSceneString);
+                mSceneString = "";
+            }
+
         }
 
     }
