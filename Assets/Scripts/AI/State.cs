@@ -10,6 +10,10 @@ public abstract class State : MonoBehaviour
 
     public abstract void CleanBehaviour();
 
+    public CharacterSFX GetCharacterSFX()
+    {
+        return mAICharacter.CharacterSounds.GetComponent<CharacterSFX>(); ;
+    }
 
     public Vector3 GetAgentPosition()
     {

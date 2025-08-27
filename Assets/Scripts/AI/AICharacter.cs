@@ -14,6 +14,8 @@ public class AICharacter : MonoBehaviour
     public UnityEvent OnGrandmaDied;
 
     public GameObject mBody;
+
+    public GameObject CharacterSounds;
     public void MoveTo(Vector3 position)
     {
         gameObject.transform.position += (GetTargetPosition(position) - gameObject.transform.position).normalized * mSpeed * Time.deltaTime;
@@ -31,6 +33,13 @@ public class AICharacter : MonoBehaviour
             Vector3 positionToLookAt = GetTargetPosition(GameObject.Find("Player").gameObject.transform.position);
             transform.LookAt(positionToLookAt);
         }
+    }
+
+    public void LookAtObject(GameObject go)
+    {
+        bLookAtDog = false;
+        Vector3 positionToLookAt = GetTargetPosition(go.transform.position);
+        transform.LookAt(positionToLookAt);
     }
 
     public void Teleport(Vector3 position)
