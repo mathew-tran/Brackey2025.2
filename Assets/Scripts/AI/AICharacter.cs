@@ -1,7 +1,6 @@
 using Unity.Burst;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.PlayerSettings;
 
 public class AICharacter : MonoBehaviour
 {
