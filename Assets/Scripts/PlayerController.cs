@@ -144,21 +144,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
-  
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Car")
-        {
-            if (IsDead() == false)
-            {
-                OnPlayerDeath.Invoke();
-                mCurrentState = CHARACTER_STATE.DEAD;
-                ProcessMove(Vector2.zero, 0);
-                mDeathPosition = transform.position;
-                GetComponent<MeshRenderer>().material = mNormalMaterial;
 
-            }
-            
+    public void SetPlayerToIncapacitated()
+    {
+        if (IsDead() == false)
+        {
+            mCurrentState = CHARACTER_STATE.DEAD;
+            OnPlayerDeath.Invoke();            
+            ProcessMove(Vector2.zero, 0);
+            mDeathPosition = transform.position;
+            GetComponent<MeshRenderer>().material = mNormalMaterial;
+
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Car")
+        {
+
+            SetPlayerToIncapacitated();
         }
     }
 }

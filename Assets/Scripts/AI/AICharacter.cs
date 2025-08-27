@@ -28,6 +28,8 @@ public class AICharacter : MonoBehaviour
     public float mTackleProgress = 0.0f;
     public float mTackleLength = .2f;
     public Vector3 mTackleDirection = Vector3.zero;
+
+    public float mTackleStrength = 20.0f;
     public void MoveTo(Vector3 position)
     {
         if (mCurrentState == STATE.TACKLED)
@@ -60,7 +62,7 @@ public class AICharacter : MonoBehaviour
     {
         if (mCurrentState == STATE.TACKLED)
         {
-            transform.position += mTackleDirection * 20 * Time.deltaTime;
+            transform.position += mTackleDirection * mTackleStrength * Time.deltaTime;
             mTackleProgress += Time.deltaTime;
             if (mTackleProgress > mTackleLength)
             {
@@ -86,9 +88,9 @@ public class AICharacter : MonoBehaviour
         return new Vector3(pos.x, transform.position.y, pos.z);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Car")
+        if (collision.gameObject.tag == "Car")
         {
             if (bIsDead == false)
             {
@@ -96,10 +98,12 @@ public class AICharacter : MonoBehaviour
                 bIsDead = true;
                 bLookAtDog = false;
                 mBody.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+                var dir = (gameObject.transform.position - collision.gameObject.transform.position).normalized;
+                mTackleStrength *= 1.5f;
+                OnTackled(dir);
             }
 
         }
-       
     }
 
     public void OnTackled(Vector3 dir)

@@ -450,6 +450,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 252348411517428892, guid: 01bfeb04f0603c7469462ccf007229f4, type: 3}
   m_PrefabInstance: {fileID: 1382240891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &141139686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141139687}
+  - component: {fileID: 141139688}
+  m_Layer: 0
+  m_Name: LookAtCoffeeShop (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141139687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141139686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1501553887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141139688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141139686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8554728d1c23e4093317883bff9a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateLookAtObject
+  mAICharacter: {fileID: 0}
+  mObjectToLookAt: {fileID: 1197107846}
 --- !u!1001 &146190645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1603,17 +1649,17 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.25943398, g: 0.84536004, b: 1, a: 1}
-  m_Intensity: 2
+  m_Color: {r: 0.9529412, g: 0.9271008, b: 0, a: 1}
+  m_Intensity: 1.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1646,8 +1692,8 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_BounceIntensity: 0.52
+  m_ColorTemperature: 2082
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -2265,6 +2311,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603274273}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &622903831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622903832}
+  m_Layer: 0
+  m_Name: ThingsToLookAt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &622903832
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622903831}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.43009, y: 0.35, z: 75.56007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1144310897}
+  - {fileID: 1197107847}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624652844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,6 +3685,7 @@ MonoBehaviour:
   mTackleProgress: 0
   mTackleLength: 0.2
   mTackleDirection: {x: 0, y: 0, z: 0}
+  mTackleStrength: 20
 --- !u!54 &941117510
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3615,8 +3695,8 @@ Rigidbody:
   m_GameObject: {fileID: 941117503}
   serializedVersion: 5
   m_Mass: 5
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1.51
+  m_AngularDamping: 5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4052,6 +4132,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateWait
   mAICharacter: {fileID: 0}
   WaitTime: 1
+--- !u!1 &1144310896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144310897}
+  m_Layer: 0
+  m_Name: CoffeeShop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1144310897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144310896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.58, y: 2.17, z: 6.77}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 622903832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1180958403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4155,6 +4266,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateMoveTo
   mAICharacter: {fileID: 0}
   mEndPosition: {fileID: 1552980189}
+--- !u!1 &1197107846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1197107847}
+  m_Layer: 0
+  m_Name: NOWHERE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1197107847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197107846}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -70.1, y: 2.17, z: 6.77}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 622903832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200253729
 GameObject:
   m_ObjectHideFlags: 0
@@ -4967,6 +5109,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateWait
   mAICharacter: {fileID: 0}
   WaitTime: 1
+--- !u!1 &1323861085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1323861086}
+  - component: {fileID: 1323861087}
+  m_Layer: 0
+  m_Name: LookAtCoffeeShop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1323861086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323861085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1501553887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323861087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323861085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8554728d1c23e4093317883bff9a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateLookAtObject
+  mAICharacter: {fileID: 0}
+  mObjectToLookAt: {fileID: 1323861085}
 --- !u!4 &1337550915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7488755680056804592, guid: cbd75359c1e01c442983295f7bc8ad01, type: 3}
@@ -5164,6 +5352,30 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2047411056}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SetPlayerToIncapacitated
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1416528777}
+        m_TargetAssemblyTypeName: CameraMoveOnDead, Assembly-CSharp
+        m_MethodName: FocusObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 941117503}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5367,6 +5579,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1416528772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6978328770862945249, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+  m_PrefabInstance: {fileID: 7882657901000829921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416528777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416528772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b6b0d7e4189854292644cbf1be4343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraMoveOnDead
+  mObjectToFocus: {fileID: 0}
 --- !u!1 &1453880066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5422,7 +5652,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 10, y: 10, z: 10, w: 10}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5639,8 +5869,9 @@ Transform:
   m_Children:
   - {fileID: 2116904668}
   - {fileID: 192541208}
-  - {fileID: 1098738760}
+  - {fileID: 141139687}
   - {fileID: 918042937}
+  - {fileID: 1098738760}
   - {fileID: 319195686}
   - {fileID: 22475386}
   - {fileID: 1791247928}
@@ -5663,6 +5894,7 @@ Transform:
   - {fileID: 1315164323}
   - {fileID: 1195581599}
   - {fileID: 363052278}
+  - {fileID: 1323861086}
   - {fileID: 533530059}
   - {fileID: 2071140351}
   - {fileID: 403421879}
@@ -7888,7 +8120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8178921906514140144, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: m_Volume
-      value: 0.40000027
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8178921906514140144, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: m_PlayOnAwake
@@ -7909,6 +8141,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6419469670926434423, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2047411055}
+    - targetCorrespondingSourceObject: {fileID: 6978328770862945249, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1416528777}
     - targetCorrespondingSourceObject: {fileID: 2288950957047263191, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 571497892}
@@ -7931,3 +8166,4 @@ SceneRoots:
   - {fileID: 1341486721}
   - {fileID: 1266131210}
   - {fileID: 1346088445}
+  - {fileID: 622903832}
