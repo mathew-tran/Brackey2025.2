@@ -11,7 +11,7 @@ public class StateMoveTo : State
 
     public override bool IsBehaviourValid()
     {
-        return Vector3.Distance(GetAgentPosition(), mEndPosition.transform.position) > GetAgentSpeed();
+        return Vector3.Distance(GetAgentPosition(), mEndPosition.transform.position) > 1f;
     }
 
     public override void RunBehaviour()

@@ -34,7 +34,8 @@ public class AICharacter : MonoBehaviour
         {
             return;
         }
-        gameObject.transform.position += (GetTargetPosition(position) - gameObject.transform.position).normalized * mSpeed * Time.deltaTime;
+
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, GetTargetPosition(position), mSpeed * Time.deltaTime);
         transform.LookAt(GetTargetPosition(position));
     }
 
@@ -43,12 +44,13 @@ public class AICharacter : MonoBehaviour
         bLookAtDog = bLookAt;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
       
         if (bLookAtDog)
         {
             Vector3 positionToLookAt = GetTargetPosition(GameObject.Find("Player").gameObject.transform.position);
+            Debug.Log(positionToLookAt);
             transform.LookAt(positionToLookAt);
         }
 
@@ -92,6 +94,7 @@ public class AICharacter : MonoBehaviour
             {
                 OnGrandmaDied.Invoke();
                 bIsDead = true;
+                bLookAtDog = false;
                 mBody.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
             }
 
