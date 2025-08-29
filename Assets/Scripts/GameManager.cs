@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,9 +16,12 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnGameOver;
     public GAME_STATE mCurrentState = GAME_STATE.PLAYING;
 
+    private void Awake()
+    {
+        Time.timeScale = 1.0f;
+    }
     public void GameOverDog()
     {
-        
         if (mCurrentState == GameManager.GAME_STATE.GAME_OVER)
         {
             
@@ -31,7 +35,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOverGrandma()
     {
-
         if (mCurrentState == GameManager.GAME_STATE.GAME_OVER)
         {
       

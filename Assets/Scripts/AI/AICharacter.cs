@@ -101,6 +101,8 @@ public class AICharacter : MonoBehaviour
                 var dir = (gameObject.transform.position - collision.gameObject.transform.position).normalized;
                 mTackleStrength *= 1.5f;
                 OnDeath(dir);
+                var particle = Resources.Load<GameObject>("HitParticle");
+                Instantiate(particle, transform.position, Quaternion.LookRotation(dir));
             }
 
         }
@@ -110,6 +112,7 @@ public class AICharacter : MonoBehaviour
     {
         OnTackled(dir);
         CharacterSounds.GetComponent<CharacterSFX>().PlaySFX(CharacterSFX.SFX_TYPE.GETTING_HIT_BY_CAR);
+
     }
 
     public void OnDogTackled(Vector3 dir)

@@ -19,6 +19,5 @@ public class RestartButton : MonoBehaviour
     {
         yield return new WaitUntil(() => mAudioSource.isPlaying == false);
         SceneSwitcher.GetInstance().SwitchToScene("Scene1");
-        //GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<SceneSwitcher>().SwitchToScene("Scene1");
     }
 }

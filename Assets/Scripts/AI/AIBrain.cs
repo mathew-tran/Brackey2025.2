@@ -74,7 +74,7 @@ public class AIBrain : MonoBehaviour
             {
                 if (mSceneString != "GameWin")
                 {
-                    GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<SceneSwitcher>().SwitchToScene(mSceneString);
+                    SceneSwitcher.GetInstance().SwitchToScene(mSceneString);
                 }
                 else
                 {

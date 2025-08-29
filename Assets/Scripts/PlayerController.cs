@@ -39,10 +39,14 @@ public class PlayerController : MonoBehaviour
 
     public CharacterSFX mCharacterSFX;
     public Material mTackleMaterial;
+
+    public Vector3 mHitDirection = Vector3.zero;
+    private float HitProgress = 0.0f;
     public enum CHARACTER_STATE
     {
         MOVING,
         TACKLE,
+        HIT,
         DEAD,
     }
 
@@ -58,6 +62,10 @@ public class PlayerController : MonoBehaviour
 
     public void Tackle()
     {
+        if (IsHit())
+        {
+            return;
+        }
         if (IsDead())
         {
             return;
@@ -80,6 +88,10 @@ public class PlayerController : MonoBehaviour
        
     }
 
+    public bool IsHit()
+    {
+        return mCurrentState == CHARACTER_STATE.HIT;
+    }
     public bool IsDead()
     {
         return mCurrentState == CHARACTER_STATE.DEAD;
@@ -115,6 +127,17 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = mDeathPosition;
             return;
+        }
+        if (IsHit())
+        {
+            var hitDir = new Vector2(mHitDirection.x, mHitDirection.z);
+            ProcessMove(hitDir, mSpeed * 3);
+            HitProgress += Time.deltaTime;
+            if (HitProgress > .2f)
+            {
+                SetPlayerToIncapacitated();
+                return;
+            }
         }
         if (IsMoving())
         {
@@ -163,11 +186,21 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Car")
+        if (collision.gameObject.tag == "Car" && IsHit() == false)
         {
 
-            SetPlayerToIncapacitated();
+            if (IsDead())
+            {
+                return;
+            }
+            
+            mCurrentState = CHARACTER_STATE.HIT;
             mCharacterSFX.PlaySFX(CharacterSFX.SFX_TYPE.GETTING_HIT_BY_CAR);
+           
+            var particle = Resources.Load<GameObject>("HitParticle");
+            var dir = (gameObject.transform.position - collision.gameObject.transform.position).normalized;
+            mHitDirection = dir;
+            Instantiate(particle, transform.position, Quaternion.LookRotation(dir));
 
         }
     }
