@@ -72,8 +72,15 @@ public class AIBrain : MonoBehaviour
             Debug.Log("No Behaviours Left for: " + mAICharacter.gameObject.name);
             if (mSceneString != "")
             {
-                SceneManager.LoadScene(mSceneString);
-                mSceneString = "";
+                if (mSceneString != "GameWin")
+                {
+                    GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<SceneSwitcher>().SwitchToScene(mSceneString);
+                }
+                else
+                {
+                    SceneManager.LoadScene(mSceneString);
+                }
+                    mSceneString = "";
             }
 
         }

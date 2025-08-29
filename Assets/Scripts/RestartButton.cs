@@ -18,6 +18,6 @@ public class RestartButton : MonoBehaviour
     public IEnumerator WaitForSoundToFinish()
     {
         yield return new WaitUntil(() => mAudioSource.isPlaying == false);
-        SceneManager.LoadScene("Scene1");
+        GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<SceneSwitcher>().SwitchToScene("Scene1");
     }
 }

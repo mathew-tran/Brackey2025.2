@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<SceneSwitcher>().SwitchToScene("Scene1");
     }
 
     private void OnEnable()

@@ -52,7 +52,6 @@ public class AICharacter : MonoBehaviour
         if (bLookAtDog)
         {
             Vector3 positionToLookAt = GetTargetPosition(GameObject.Find("Player").gameObject.transform.position);
-            Debug.Log(positionToLookAt);
             transform.LookAt(positionToLookAt);
         }
 
