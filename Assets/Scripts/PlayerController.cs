@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
+
+        mCharacterSFX.PlaySFX(CharacterSFX.SFX_TYPE.GETTING_EXCITED);
         GetComponent<MeshRenderer>().material = mTackleMaterial;
         mCurrentState = CHARACTER_STATE.TACKLE;
         OnTackleStart.Invoke();
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public void Restart()
     {
-        GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<SceneSwitcher>().SwitchToScene("Scene1");
+        SceneSwitcher.GetInstance().SwitchToScene("Scene1");
     }
 
     private void OnEnable()

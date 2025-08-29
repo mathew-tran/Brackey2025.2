@@ -438,7 +438,8 @@ MonoBehaviour:
   mSighing: {fileID: 0}
   mGettingAngry: {fileID: 0}
   mCurious: {fileID: 0}
-  mGettingExcited: {fileID: 0}
+  mGettingExcited: {fileID: 8300000, guid: 04ef7fe9bb8c45f4d87d779cb5de7aab, type: 3}
+  mGettingHitByCar: {fileID: 0}
 --- !u!1 &3523151101500583753
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +730,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   mController: {fileID: 7418606090685010738}
-  bIsDead: 0
+  TackleProgress: 0
+  TackleLength: 0.1
+  TackleSpeedModifier: 1.5
+  OnTackleStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onTackleEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  mCharacterSFX: {fileID: 0}
+  mTackleMaterial: {fileID: 0}
+  mCurrentState: 0
 --- !u!1 &6978328770862945249
 GameObject:
   m_ObjectHideFlags: 0

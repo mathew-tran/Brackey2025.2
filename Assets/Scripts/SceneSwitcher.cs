@@ -1,18 +1,35 @@
 using System.Collections;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
     public Animator mAnimator;
+    public static SceneSwitcher mInstance;
+
+    public static SceneSwitcher GetInstance()
+    {
+        if (mInstance == null)
+        {
+            GameObject obj = Resources.Load<GameObject>("SceneSwitcher");
+            Instantiate(obj);
+        }
+        return mInstance;
+    }
     private void Awake()
     {
+        if (mInstance)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        mInstance = this;
         DontDestroyOnLoad(this.gameObject);
        
     }
     private void Start()
     {
-        SwitchToScene("GameStart");
     }
     public void SwitchToScene(string sceneName)
     {
