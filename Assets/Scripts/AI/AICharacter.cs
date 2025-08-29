@@ -18,6 +18,7 @@ public class AICharacter : MonoBehaviour
 
     public GameObject CharacterSounds;
 
+
     public enum STATE
     {
         MOVING,

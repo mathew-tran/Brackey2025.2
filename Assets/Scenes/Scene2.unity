@@ -3972,7 +3972,6 @@ GameObject:
   - component: {fileID: 941117507}
   - component: {fileID: 941117505}
   - component: {fileID: 941117509}
-  - component: {fileID: 941117510}
   m_Layer: 3
   m_Name: Grandma
   m_TagString: Untagged
@@ -4040,7 +4039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab82f359a8ba5544fa18b70cb2b1e14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AICharacter
-  mSpeed: 1.2
+  mSpeed: 10
   mSpeechBubble: {fileID: 360615456}
   bIsDead: 0
   bLookAtDog: 0
@@ -4066,33 +4065,6 @@ MonoBehaviour:
   mTackleLength: 0.2
   mTackleDirection: {x: 0, y: 0, z: 0}
   mTackleStrength: 20
---- !u!54 &941117510
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 941117503}
-  serializedVersion: 5
-  m_Mass: 5
-  m_LinearDamping: 1.51
-  m_AngularDamping: 5
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!1 &956399139
 GameObject:
   m_ObjectHideFlags: 0
@@ -5878,7 +5850,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: You got hit by a car.
+          m_StringArgument: You got hurt
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 941117509}

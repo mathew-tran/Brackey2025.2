@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FallingPiano : MonoBehaviour
@@ -34,6 +35,8 @@ public class FallingPiano : MonoBehaviour
         if (Physics.Raycast(rayOrigin, rayDirection, out hit, DistanceToCheck, mInteractableLayers))
         {
             mShadowObject.transform.position = hit.point + new Vector3(0, .1f, 0);
+            float weight = 1 - (hit.distance / DistanceToCheck);
+            mShadowObject.transform.localScale = Mathf.Lerp(.1f, 25f, weight) * new Vector3(1, 1, 1); ;
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -45,6 +48,10 @@ public class FallingPiano : MonoBehaviour
             mShadowObject.SetActive(false);
             mState = PIANO_STATE.FELL;
             StartCoroutine(SetObject());
+            var particle = Resources.Load<GameObject>("ImpactParticle");
+            var spawnPosition = mShadowObject.transform.position;
+            spawnPosition.y = 0.55f;
+            Instantiate(particle, spawnPosition, Quaternion.identity);
         }
         
     }
