@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11662384}
   - component: {fileID: 11662385}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LookAtDog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 74425798}
   - component: {fileID: 74425799}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 118296283}
   - component: {fileID: 118296286}
   - component: {fileID: 118296285}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 242221030}
   - component: {fileID: 242221031}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChangeSong (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 259441519}
   - component: {fileID: 259441520}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1242,7 +1242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 335990465}
   - component: {fileID: 335990466}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 360615452}
   - component: {fileID: 360615455}
   - component: {fileID: 360615456}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1553,7 +1553,7 @@ GameObject:
   - component: {fileID: 392767611}
   - component: {fileID: 392767610}
   - component: {fileID: 392767609}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,6 +1779,52 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &430521600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 430521602}
+  - component: {fileID: 430521601}
+  m_Layer: 0
+  m_Name: Piano Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &430521601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430521600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41e3b1c9053653439959f1654eb794f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PianoSpawner
+  mPianoToSpawn: {fileID: 3798324062366476833, guid: cdcd92317bd0a8c4c92db1eff8f3ec2f, type: 3}
+  mAmount: 3
+--- !u!4 &430521602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430521600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.56347, y: 24.69, z: 204.08452}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &440991954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8449727793148739172, guid: 369c8a395ab8570428559e658c584392, type: 3}
@@ -2264,7 +2310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615048021}
   - component: {fileID: 615048022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2344,7 +2390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 655774490}
   - component: {fileID: 655774491}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2621,7 +2667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668383472}
   - component: {fileID: 668383473}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2668,7 +2714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676105715}
   - component: {fileID: 676105716}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3254,7 +3300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 812837848}
   - component: {fileID: 812837849}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MoveToPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3517,7 +3563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852343605}
   - component: {fileID: 852343606}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChangeSong (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3634,7 +3680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 903122473}
   - component: {fileID: 903122474}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3927,7 +3973,7 @@ GameObject:
   - component: {fileID: 941117505}
   - component: {fileID: 941117509}
   - component: {fileID: 941117510}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grandma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4058,7 +4104,7 @@ GameObject:
   - component: {fileID: 956399140}
   - component: {fileID: 956399142}
   - component: {fileID: 956399141}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4614,7 +4660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1099297693}
   - component: {fileID: 1099297694}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4725,7 +4771,7 @@ GameObject:
   - component: {fileID: 1132489604}
   - component: {fileID: 1132489603}
   - component: {fileID: 1132489602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5085,7 +5131,7 @@ GameObject:
   - component: {fileID: 1200253732}
   - component: {fileID: 1200253731}
   - component: {fileID: 1200253734}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5279,7 +5325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239506293}
   - component: {fileID: 1239506294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChangeSong (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5484,7 +5530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1283734075}
   - component: {fileID: 1283734076}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChangeSong (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5593,7 +5639,7 @@ GameObject:
   - component: {fileID: 1296113994}
   - component: {fileID: 1296113996}
   - component: {fileID: 1296113995}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GrandmaSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5740,7 +5786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333288146}
   - component: {fileID: 1333288147}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MakeNoise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5895,7 +5941,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Grandma got hit by a car.
+          m_StringArgument: Grandma took a piano to the head.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 360615456}
@@ -6083,7 +6129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1359883554}
   - component: {fileID: 1359883555}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6353,7 +6399,7 @@ GameObject:
   - component: {fileID: 1453880069}
   - component: {fileID: 1453880068}
   - component: {fileID: 1453880070}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6473,7 +6519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1501553887}
   - component: {fileID: 1501553888}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6510,6 +6556,7 @@ Transform:
   - {fileID: 1099297693}
   - {fileID: 1666662905}
   - {fileID: 242221030}
+  - {fileID: 1615890840}
   - {fileID: 2010590552}
   - {fileID: 335990465}
   - {fileID: 1283734075}
@@ -6766,6 +6813,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581730255}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1615890839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615890840}
+  - component: {fileID: 1615890841}
+  m_Layer: 3
+  m_Name: SpawnPianos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1615890840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615890839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1501553887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615890841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615890839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fef21a42f4e52e44957ba5238725100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateActivateObject
+  mAICharacter: {fileID: 0}
+  OnObjectActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 430521601}
+        m_TargetAssemblyTypeName: PianoSpawner, Assembly-CSharp
+        m_MethodName: StartSpawningPianos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1622244272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6949,7 +7056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1657101535}
   - component: {fileID: 1657101536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6996,7 +7103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666662905}
   - component: {fileID: 1666662906}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7179,7 +7286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679772573}
   - component: {fileID: 1679772574}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MoveToCrossWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7349,7 +7456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1890949782}
   - component: {fileID: 1890949783}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MoveToEndOfCrossWalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7516,7 +7623,7 @@ GameObject:
   - component: {fileID: 1912290952}
   - component: {fileID: 1912290951}
   - component: {fileID: 1912290950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7860,7 +7967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2010590552}
   - component: {fileID: 2010590553}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Talk (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8319,7 +8426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116341710}
   - component: {fileID: 2116341711}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MoveToPianoShop (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8365,7 +8472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116904668}
   - component: {fileID: 2116904669}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChangeSong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8411,7 +8518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2123863475}
   - component: {fileID: 2123863476}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MoveToPianoShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8594,10 +8701,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 70.24
       objectReference: {fileID: 0}
+    - target: {fileID: 1260139467852597873, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1979690862075756625, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: TackleLength
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1979690862075756625, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: mCharacterSFX
+      value: 
+      objectReference: {fileID: 596836253}
     - target: {fileID: 1979690862075756625, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: mTackleMaterial
       value: 
@@ -8834,6 +8949,18 @@ PrefabInstance:
       propertyPath: OnTackleStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2288950957047263191, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631517128603587553, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145581201530554938, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3334114264639130312, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.39
@@ -8878,6 +9005,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3523151101500583753, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5273496057030634927, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: m_Volume
       value: 0
@@ -8891,8 +9022,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6419469670926434423, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419469670926434423, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978328770862945249, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8178921906514140144, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: m_Volume
@@ -8954,3 +9093,4 @@ SceneRoots:
   - {fileID: 665580826}
   - {fileID: 837300014}
   - {fileID: 1552251105}
+  - {fileID: 430521602}
