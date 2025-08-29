@@ -94,8 +94,9 @@ public class AICharacter : MonoBehaviour
         {
             if (bIsDead == false)
             {
-                OnGrandmaDied.Invoke();
                 bIsDead = true;
+                OnGrandmaDied.Invoke();
+                CharacterSounds.GetComponent<CharacterSFX>().PlaySFX(CharacterSFX.SFX_TYPE.GETTING_HIT_BY_CAR);
                 bLookAtDog = false;
                 mBody.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
                 var dir = (gameObject.transform.position - collision.gameObject.transform.position).normalized;
@@ -112,6 +113,5 @@ public class AICharacter : MonoBehaviour
         mTackleDirection.y = 0;
         mCurrentState = STATE.TACKLED;
         mTackleProgress = 0.0f;
-        CharacterSounds.GetComponent<CharacterSFX>().PlaySFX(CharacterSFX.SFX_TYPE.GETTING_ANGRY, true);
     }
 }

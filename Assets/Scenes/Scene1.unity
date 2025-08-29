@@ -4736,6 +4736,7 @@ MonoBehaviour:
   mGettingAngry: {fileID: 8300000, guid: 1c85f458205e0804281fd143dcce9125, type: 3}
   mCurious: {fileID: 8300000, guid: 984ad4cf9a3e5a84f85850bff66980b2, type: 3}
   mGettingExcited: {fileID: 8300000, guid: f2b14fcfba1dfa440bfaafc946c7d963, type: 3}
+  mGettingHitByCar: {fileID: 8300000, guid: c6f2b05934ffa2f4db1edc89fe541172, type: 3}
 --- !u!82 &1296113996
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7833,6 +7834,10 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1979690862075756625, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: mCharacterSFX
+      value: 
+      objectReference: {fileID: 596836253}
+    - target: {fileID: 1979690862075756625, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: mTackleMaterial
       value: 
       objectReference: {fileID: 5923657686669987, guid: 62e4620e74b14024486f862883c9c7bc, type: 3}
@@ -8116,6 +8121,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5579461267970361424, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
+      propertyPath: mGettingHitByCar
+      value: 
+      objectReference: {fileID: 8300000, guid: c6f2b05934ffa2f4db1edc89fe541172, type: 3}
     - target: {fileID: 6419469670926434423, guid: c7d2e46ece8232c42acbdcda89550cab, type: 3}
       propertyPath: m_Name
       value: Player

@@ -9,6 +9,7 @@ public class CharacterSFX : MonoBehaviour
     public AudioClip mGettingAngry;
     public AudioClip mCurious;
     public AudioClip mGettingExcited;
+    public AudioClip mGettingHitByCar;
 
     private AudioSource mSource;
 
@@ -22,7 +23,8 @@ public class CharacterSFX : MonoBehaviour
         SIGHING,
         GETTING_ANGRY,
         CURIOUS,
-        GETTING_EXCITED
+        GETTING_EXCITED,
+        GETTING_HIT_BY_CAR,
     }
 
     public void PlayOnKilled()
@@ -48,6 +50,9 @@ public class CharacterSFX : MonoBehaviour
                 break;
             case SFX_TYPE.GETTING_EXCITED:
                 clipToPlay = mGettingExcited;
+                break;
+            case SFX_TYPE.GETTING_HIT_BY_CAR:
+                clipToPlay = mGettingHitByCar;
                 break;
 
         }

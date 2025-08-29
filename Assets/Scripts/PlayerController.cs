@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     public UnityEvent onTackleEnd;
 
     private Material mNormalMaterial;
+
+    public CharacterSFX mCharacterSFX;
     public Material mTackleMaterial;
     public enum CHARACTER_STATE
     {
@@ -163,6 +165,8 @@ public class PlayerController : MonoBehaviour
         {
 
             SetPlayerToIncapacitated();
+            mCharacterSFX.PlaySFX(CharacterSFX.SFX_TYPE.GETTING_HIT_BY_CAR);
+
         }
     }
 }
