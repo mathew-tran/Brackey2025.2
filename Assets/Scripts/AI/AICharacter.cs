@@ -96,17 +96,28 @@ public class AICharacter : MonoBehaviour
             {
                 bIsDead = true;
                 OnGrandmaDied.Invoke();
-                CharacterSounds.GetComponent<CharacterSFX>().PlaySFX(CharacterSFX.SFX_TYPE.GETTING_HIT_BY_CAR);
+                
                 bLookAtDog = false;
                 mBody.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
                 var dir = (gameObject.transform.position - collision.gameObject.transform.position).normalized;
                 mTackleStrength *= 1.5f;
-                OnTackled(dir);
+                OnDeath(dir);
             }
 
         }
     }
 
+    private void OnDeath(Vector3 dir)
+    {
+        OnTackled(dir);
+        CharacterSounds.GetComponent<CharacterSFX>().PlaySFX(CharacterSFX.SFX_TYPE.GETTING_HIT_BY_CAR);
+    }
+
+    public void OnDogTackled(Vector3 dir)
+    {
+        OnTackled(dir);
+        CharacterSounds.GetComponent<CharacterSFX>().PlaySFX(CharacterSFX.SFX_TYPE.GETTING_ANGRY);
+    }
     public void OnTackled(Vector3 dir)
     {
         mTackleDirection = dir;
