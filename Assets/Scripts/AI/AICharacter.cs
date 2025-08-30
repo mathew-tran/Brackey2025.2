@@ -33,7 +33,9 @@ public class AICharacter : MonoBehaviour
     public float mTackleStrength = 20.0f;
     public void MoveTo(Vector3 position)
     {
+        mBody.GetComponent<Animator>().SetBool("bIsMoving", true);
         if (mCurrentState == STATE.TACKLED)
+
         {
             return;
         }
@@ -64,9 +66,11 @@ public class AICharacter : MonoBehaviour
         {
             transform.position += mTackleDirection * mTackleStrength * Time.deltaTime;
             mTackleProgress += Time.deltaTime;
+            mBody.GetComponent<Animator>().SetBool("bIsHit", true);
             if (mTackleProgress > mTackleLength)
             {
                 mCurrentState = STATE.MOVING;
+                mBody.GetComponent<Animator>().SetBool("bIsHit", false);
             }
 
         }
@@ -82,6 +86,7 @@ public class AICharacter : MonoBehaviour
     public void Teleport(Vector3 position)
     {
         gameObject.transform.position =  GetTargetPosition(position);
+        mBody.GetComponent<Animator>().SetBool("bIsMoving", false);
     }
     private Vector3 GetTargetPosition(Vector3 pos)
     {
@@ -96,9 +101,9 @@ public class AICharacter : MonoBehaviour
             {
                 bIsDead = true;
                 OnGrandmaDied.Invoke();
-                
+                mBody.GetComponent<Animator>().SetBool("bIsDead", true);
+
                 bLookAtDog = false;
-                mBody.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
                 var dir = (gameObject.transform.position - collision.gameObject.transform.position).normalized;
                 mTackleStrength *= 1.5f;
                 OnDeath(dir);
@@ -123,6 +128,7 @@ public class AICharacter : MonoBehaviour
     }
     public void OnTackled(Vector3 dir)
     {
+        transform.rotation = Quaternion.LookRotation(-dir);
         mTackleDirection = dir;
         mTackleDirection.y = 0;
         mCurrentState = STATE.TACKLED;
