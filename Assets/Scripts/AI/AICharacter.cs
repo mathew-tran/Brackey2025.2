@@ -47,6 +47,7 @@ public class AICharacter : MonoBehaviour
     public void SetLookAtPlayer(bool bLookAt = true)
     {
         bLookAtDog = bLookAt;
+        mBody.GetComponent<Animator>().SetBool("bIsMoving", false);
     }
 
     private void FixedUpdate()

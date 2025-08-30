@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
 
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     public CharacterSFX mCharacterSFX;
     public Material mTackleMaterial;
+    public GameObject mBody;
+    public Animator mAnimator;
 
     public Vector3 mHitDirection = Vector3.zero;
     private float HitProgress = 0.0f;
@@ -161,7 +164,20 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
         moveDirection.z = input.y;
+
+        if (input == Vector2.zero)
+        {
+            mAnimator.SetBool("bIsMoving", false);
+            
+        }
+        else
+        {
+            mAnimator.SetBool("bIsMoving", true);
+            mBody.transform.rotation = Quaternion.LookRotation(moveDirection);
+        }
+        
         mController.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
+        
         mVelocity.y += mGravity * Time.deltaTime;
         if (bIsGrounded && mVelocity.y < 0)
         {
@@ -177,7 +193,9 @@ public class PlayerController : MonoBehaviour
         if (IsDead() == false)
         {
             mCurrentState = CHARACTER_STATE.DEAD;
-            OnPlayerDeath.Invoke();            
+            mAnimator.SetBool("bIsDead", true);
+            OnPlayerDeath.Invoke();
+            mBody.transform.rotation = Quaternion.LookRotation(Vector3.up);
             ProcessMove(Vector2.zero, 0);
             mDeathPosition = transform.position;
             GetComponent<MeshRenderer>().material = mNormalMaterial;
